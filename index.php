@@ -29,7 +29,34 @@
 						<span class='prodactPrice'>{$arr_prodact["price"]} ש''ח </span>
 						<span class='prodactDescription'>{$arr_prodact["description"]}</span>
 						<span class='owner'>{$arr_prodact["owner"]}</span>
+						<span class='btn'>
+							<form target='paypal' action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post'>
+
+							<!-- Identify your business so that you can collect the payments. -->
+							<input type='hidden' name='business' value='liranhecht-facilitator@gmail.com'>
+
+							<!-- Specify a PayPal Shopping Cart Add to Cart button. -->
+							<input type='hidden' name='cmd' value='_cart'>
+							<input type='hidden' name='add' value='1'>
+							<input type='hidden' name='charset' value='utf-8'>
+
+							<!-- Specify details about the item that buyers will purchase. -->
+							<input type='hidden' name='item_name' value='{$arr_prodact["title"]}'>
+							<input type='hidden' name='amount' value='{$arr_prodact["price"]}'>
+							<input type='hidden' name='currency_code' value='ILS'>
+							<input name='lc' type='hidden' value='he_IL'>
+
+							<!-- Display the payment button. -->
+							<input type='image' name='submit'
+							src='https://www.paypalobjects.com/he_IL/i/btn/btn_cart_LG.gif'
+							alt='Add to Cart'>
+							<img alt='' width='1' height='1'
+							src='https://www.paypalobjects.com/he_IL/i/scr/pixel.gif'>
+							</form>
+						</span>
 					</div>";
+
+				
 			}			
 		?>
 
